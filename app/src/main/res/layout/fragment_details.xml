@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:padding="10dp"
+    android:background="#00000000"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto">
+
+ <android.support.v7.widget.CardView
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_margin="10dp"
+    card_view:cardCornerRadius="20dp"
+    card_view:cardElevation="10dp"
+    card_view:contentPadding="2dp"
+    tools:context="com.adptest.usersdir.MainActivity">
+
+  <RelativeLayout
+      android:id="@+id/main_layout"
+      android:layout_height="match_parent"
+      android:layout_width="match_parent">
+
+    <RelativeLayout
+      android:id="@+id/name_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <!-- For user picture ( future use ) -->
+    <ImageView
+       android:layout_width="40dp"
+       android:layout_height="40dp"
+       android:id="@+id/picture"
+       android:src="@drawable/user_default"
+       android:scaleType="fitXY"
+       android:layout_marginRight="8dp"
+       android:layout_marginLeft="4dp"
+       android:layout_marginTop="8dp"
+    />
+
+    <TextView
+       android:id="@+id/named"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:layout_toRightOf="@id/picture"
+       android:textSize="@dimen/title_size"
+       android:layout_marginTop="12dp"
+    />
+
+    <ImageView
+       android:id="@+id/locicon"
+       android:layout_marginTop="8dp"
+       android:layout_marginRight="10dp"
+       android:layout_width="30dp"
+       android:layout_height="40dp"
+       android:src="@drawable/locicon"
+       android:scaleType="fitXY"
+       android:layout_below="@id/separator"
+       android:layout_alignParentRight="true"
+     />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/username_layout"
+      android:layout_below="@id/name_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/usernamet"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/username"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/usernamed"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/usernamet"
+    />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/email_layout"
+      android:layout_below="@id/username_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/emailt"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/email"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/emaild"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/emailt"
+    />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/address_layout"
+      android:layout_below="@id/email_layout"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/addresst"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/address"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/addressd"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/addresst"
+    />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/phone_layout"
+      android:layout_below="@id/address_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/phonet"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/phone"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/phoned"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/phonet"
+    />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/website_layout"
+      android:layout_below="@id/phone_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/websitet"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/website"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/websited"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/websitet"
+    />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+      android:id="@+id/company_layout"
+      android:layout_below="@id/website_layout"
+      android:layout_height="56dp"
+      android:layout_width="match_parent">
+
+    <TextView
+       android:id="@+id/companyt"
+       android:layout_width="80dp"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_marginLeft="5dp"
+       android:text="@string/company"
+       android:textStyle="bold"
+    />
+
+    <TextView
+       android:id="@+id/companyd"
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:textSize="@dimen/content_size"
+       android:layout_marginTop="12dp"
+       android:layout_toRightOf="@id/companyt"
+    />
+
+    </RelativeLayout>
+
+  </RelativeLayout>
+
+ </android.support.v7.widget.CardView>
+
+</RelativeLayout>

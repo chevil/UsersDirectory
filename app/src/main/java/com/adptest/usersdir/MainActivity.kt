@@ -138,10 +138,10 @@ class MainActivity : FragmentActivity() {
              supportFragmentManager.popBackStack()
              hideBack()
        }
+       // Getting the list of users ( only once )
        getUsers()
     }
 
-    // Getting the list of users
     override fun onResume() {
        super.onResume()
     }

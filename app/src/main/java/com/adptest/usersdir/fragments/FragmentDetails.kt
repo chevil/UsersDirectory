@@ -32,18 +32,13 @@ class FragmentDetails(user: User) : Fragment() {
       var isCreated : Boolean = false 
     }
 
-    // Setting the user when first created
-    public fun setUser( user: User ) {
-        mUser = user
-    }
- 
     // Update the user once it has been created ( views are existing then )
     public fun updateUser( user: User ) {
         mUser = user
-        mainView.findViewById<TextView>(R.id.named)?.setText( mUser.name )
         mActivity.showBack()
     }
 
+    // this is called everytime the fragment is shown
     override public fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View {
      try {
         // Inflate the layout for this fragment

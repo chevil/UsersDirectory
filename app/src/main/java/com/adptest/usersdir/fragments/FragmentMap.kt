@@ -50,25 +50,9 @@ class FragmentMap(user: User) : Fragment() {
     // Update the user once it has been created ( views are existing then )
     public fun updateUser( user: User ) {
         mUser = user
-        // set center
-        mCenter = GeoCoordinate( mUser.address.geo.lat, mUser.address.geo.lng );
-        mMap.setCenter(mCenter, 
-                       com.here.android.mpa.mapping.Map.Animation.LINEAR, 
-                       mZoomLevel, 
-                       com.here.android.mpa.mapping.Map.MOVE_PRESERVE_ORIENTATION, 
-                       com.here.android.mpa.mapping.Map.MOVE_PRESERVE_TILT );
-        mMap.setZoomLevel(mZoomLevel) 
-
-        // create the marker on the map
-        mMarker.setCoordinate( mCenter );
-        mMarker.setTitle( mUser.name );
-        var hAddress : String = mUser.address.street + "\n" + mUser.address.suite + "\n" + 
-                               mUser.address.zipcode + " - " + mUser.address.city
-        mMarker.setDescription( hAddress );
-        mMarker.showInfoBubble()
-        mActivity.showBack()
     }
 
+    // this is called everytime the fragment is shown
     override public fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) : View {
       try {
         // Inflate the layout for this fragment
@@ -108,6 +92,8 @@ class FragmentMap(user: User) : Fragment() {
                mMarker.setAnchorPoint( PointF( 24.0f, 48.0f ) );
                mMap.addMapObject(mMarker);
                mMarker.showInfoBubble()
+
+               isCreated = true;
 
              } catch ( e: Exception ) {
                Log.e( Constants.LOGTAG, "Couldn't create marker", e );

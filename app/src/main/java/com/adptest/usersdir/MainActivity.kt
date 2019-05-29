@@ -67,10 +67,25 @@ class MainActivity : FragmentActivity() {
 
     private lateinit var disposable : Disposable
 
+    // This function is called to create and show the users fragment ( called only once )
+    // This is the root fragment and it is not added to the back stack
+    private fun showUsersFragment() {
+     try {
+       listFragment = FragmentList(usersList)
+       supportFragmentManager
+       .beginTransaction()
+       .replace(R.id.main_layout, listFragment as Fragment, getString( R.string.app_name ))
+       // .addToBackStack(null)
+       .commit()
+      } catch ( e: Exception ) {
+        Log.e( Constants.LOGTAG, "Couldn't show users fragment", e )
+      }
+    }
+
     // This function is called when we click on a user : we open the user's details fragment
     public fun onUserClicked(position: Int) {
         try {
-          Log.v( Constants.LOGTAG, "User cliked : " + position )
+          Log.v( Constants.LOGTAG, "User clicked : " + position )
           // check if the fragment already exists and update it or create it 
           if (FragmentDetails.isCreated)
           {
@@ -78,6 +93,7 @@ class MainActivity : FragmentActivity() {
           }
           else
           {
+             Log.v( Constants.LOGTAG, "Create details fragment : " + FragmentDetails.isCreated );
              detailsFragment = FragmentDetails( usersList.get(position) )
           }
           supportFragmentManager
@@ -105,6 +121,7 @@ class MainActivity : FragmentActivity() {
           }
           else
           {
+             Log.v( Constants.LOGTAG, "Create map fragment : " + FragmentMap.isCreated );
              mapFragment = FragmentMap( user )
           }
           supportFragmentManager
@@ -232,21 +249,6 @@ class MainActivity : FragmentActivity() {
       }
     }
  
-    // This function is called to create and show the users fragment ( called only once )
-    // This is the root fragment and it is not added to the back stack
-    private fun showUsersFragment() {
-     try {
-       listFragment = FragmentList(usersList)
-       supportFragmentManager
-       .beginTransaction()
-       .replace(R.id.main_layout, listFragment as Fragment, getString( R.string.app_name ))
-       // .addToBackStack(null)
-       .commit()
-      } catch ( e: Exception ) {
-        Log.e( Constants.LOGTAG, "Couldn't show users fragment", e )
-      }
-    }
-
     // This function save the users list in a file
     private fun saveUsersList(users: List<User>) {
      try {
